@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: proy-mysql-ws-service
+  datasource:
+    url: jdbc:mysql://localhost:3302/bd_calypso
+    username: root
+    password: root123
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect #permite entender el mapeo de las tablas
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  freemarker:
+    enabled: false
+  thymeleaf:
+    enabled: true
+    prefix: classpath://templates/  
+    suffix: .html
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+    metadata-map:
+      instanceId: ${spring.application.name}:${server.port}
+server:
+  port: 5014
+  controller.context-path: /operation-service/v1 
+application:
+  ws:
+    endpoint: http://localhost:7005/ws
+    package: com.mysql.ws.model.thirdparty.seriva
+  swagger:
+    title: Service Products
+    description: Api para Gestion de Productos
+    version: v1
+    default:  
+      codes: 200,201,400,500
+    
+    

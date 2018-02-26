@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: proy-mysql-ws-service
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:5000
+      name: proy-mysql-ws-service
+  
+banner:
+  location: banner/banner.txt
+  
+info:
+  project:
+    name: Zion API Provider WS SOAP Consumo API Rest y MySQL
+    description: Proyecto que actua como porveedor se conecta a MySQL y consume de multiples WS
+    version: 0.0.1-SNAPSHOT
+    
+    
+        
